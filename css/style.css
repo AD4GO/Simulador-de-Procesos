@@ -404,14 +404,30 @@ footer{
     padding: 10px;
 }
 
-.content > h1{
+.tituloGrafica{
     margin-bottom: 2rem;
     text-align: center;
+    color: aqua;
 }
 .content{
-    width: 40%;
-    margin: 0 auto;
+    width: 50%;
+    margin: 0 ;
+    margin: 20px;
+}
+.content h2{
+    margin: 5px;
+    margin-bottom: 25px;
 }
 canvas{
     max-width: 100%;
+    
+}
+.definiciones{
+    width: 40%;
+    margin-left: 50px;
+}
+
+.graficaList{
+    display: flex;
+    gap: 200px;
 }
