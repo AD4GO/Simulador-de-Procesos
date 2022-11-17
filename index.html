@@ -131,7 +131,7 @@
     <h2>Reportes</h2>
     <div class="contenedor2">
       <section class="estadoProceso">
-        <div class="terminado">
+        <div class="ListEjecucion">
             <h3 class="tituloTabla">Listado de ejecución</h3>
             <table class="tablaProcesos" id="tableTerminado">
                 <thead>
@@ -181,8 +181,9 @@
               </table>
         </div>
     </section>
+  
     <section class="estadoProceso">
-      <div class="terminado">
+      <div class="NoExpuls">
           <h3 class="tituloTabla">Listado de procesos (no expulsivos)</h3>
           <table class="tablaProcesos" id="tableTerminado">
               <thead>
@@ -217,7 +218,15 @@
             </table>
       </div>
   </section>
-    </div>
+</div>
+  <div class="graficaList">
+    <section class="content">
+      <h1>Proceso vs TurnaRound</h1>
+      <canvas id="myChart" height="200" width="200"> </canvas>
+    </section>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.min.js" integrity="sha512-tQYZBKe34uzoeOjY9jr3MX7R/mo7n25vnqbnrkskGr4D6YOoPYSpyafUAzQVjV6xAozAqUFIEFsCO4z8mnVBXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="./js/grafica.js"></script>
 </body>
 <footer>
   Universidad de Cordoba - Sistemas Operativos

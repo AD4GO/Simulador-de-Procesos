@@ -11,15 +11,12 @@ body {
   }
 
 
-  .glow {
+.glow {
     text-align:center;
-    color:rgba(255,255,255,.3); 
-    text-shadow: 0 0 1px rgba(157,208,154,.3); // Fallback for nonCSS3?
-    /* Stripes */
-    /*Fallback:
-  http://nimbupani.com/using-background-clip-for-text-with-css-fallback.html
-  */
-    background: -webkit-linear-gradient(transparent, transparent),               url(https://i.imgur.com/WyMyxQ6.png) repeat;
+    color:rgba(7, 100, 239, 0.3); 
+    text-shadow: 0 0 1px rgba(104, 125, 173, 0.3); 
+
+    background: -webkit-linear-gradient(transparent, transparent) ;
     /* clipping webkit magic */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -34,73 +31,73 @@ body {
   
   @-webkit-keyframes glow {
     0% {
-      text-shadow: 0 0 1px rgba(255, 255, 255, 0.1),
-                   0 0 3px rgba(255,255,255,.1),
-                   0 0 5px rgba(157,208,154,.3);
-    }
-    50% {
-      text-shadow: 0 0 2px rgba(255,255,255,.1),
-                   0 0 5px rgba(255,255,255,.1);
-    }
-    52% {
-      text-shadow: 0 0 5px rgba(157,208,154,.3);
-    }
-    54% {
-      text-shadow: 0 0 2px rgba(255,255,255,.1),
-                   0 0 5px rgba(255,255,255,.1);
-    }
-    100% {
-      text-shadow: 0 0 2px rgba(255,255,255,.1),
-                   0 0 5px rgba(255,255,255,.1),
-                   0 0 20px rgba(157,208,154,.3);
-    }
+        text-shadow: 0 0 1px rgba(62, 62, 239, 0.1),
+                     0 0 3px rgba(62, 62, 239, 0.1),
+                     0 0 5px rgba(154, 164, 208, 0.3);
+      }
+      50% {
+        text-shadow: 0 0 2px rgba(62, 62, 239, 0.1),
+                     0 0 5px rgba(62, 62, 239, 0.1);
+      }
+      52% {
+        text-shadow: 0 0 5px rgba(154, 168, 208, 0.3);
+      }
+      54% {
+        text-shadow: 0 0 2px rgba(62, 62, 239, 0.1),
+                     0 0 5px rgba(62, 62, 239, 0.1);
+      }
+      100% {
+        text-shadow: 0 0 2px rgba(62, 62, 239, 0.1),
+                     0 0 5px rgba(62, 62, 239, 0.1),
+                     0 0 20px rgba(154, 168, 208, 0.3);
+      } 
   }
   
   @-moz-keyframes glow {
     0% {
-      text-shadow: 0 0 1px rgba(255,255,255,.1),
-                   0 0 3px rgba(255,255,255,.1),
-                   0 0 5px rgba(157,208,154,.3);
-    }
-    50% {
-      text-shadow: 0 0 2px rgba(255,255,255,.1),
-                   0 0 5px rgba(255,255,255,.1);
-    }
-    52% {
-      text-shadow: 0 0 5px rgba(157,208,154,.3);
-    }
-    54% {
-      text-shadow: 0 0 2px rgba(255,255,255,.1),
-                   0 0 5px rgba(255,255,255,.1);
-    }
-    100% {
-      text-shadow: 0 0 2px rgba(255,255,255,.1),
-                   0 0 5px rgba(255,255,255,.1),
-                   0 0 20px rgba(157,208,154,.3);
-    }
+        text-shadow: 0 0 1px rgba(62, 62, 239, 0.1),
+                     0 0 3px rgba(62, 62, 239, 0.1),
+                     0 0 5px rgba(154, 164, 208, 0.3);
+      }
+      50% {
+        text-shadow: 0 0 2px rgba(62, 62, 239, 0.1),
+                     0 0 5px rgba(62, 62, 239, 0.1);
+      }
+      52% {
+        text-shadow: 0 0 5px rgba(154, 168, 208, 0.3);
+      }
+      54% {
+        text-shadow: 0 0 2px rgba(62, 62, 239, 0.1),
+                     0 0 5px rgba(62, 62, 239, 0.1);
+      }
+      100% {
+        text-shadow: 0 0 2px rgba(62, 62, 239, 0.1),
+                     0 0 5px rgba(62, 62, 239, 0.1),
+                     0 0 20px rgba(154, 168, 208, 0.3);
+      }
   }
   
   @keyframes glow {
     0% {
-      text-shadow: 0 0 1px rgba(255,255,255,.1),
-                   0 0 3px rgba(255,255,255,.1),
-                   0 0 5px rgba(157,208,154,.3);
+      text-shadow: 0 0 1px rgba(62, 62, 239, 0.1),
+                   0 0 3px rgba(62, 62, 239, 0.1),
+                   0 0 5px rgba(154, 164, 208, 0.3);
     }
     50% {
-      text-shadow: 0 0 2px rgba(255,255,255,.1),
-                   0 0 5px rgba(255,255,255,.1);
+      text-shadow: 0 0 2px rgba(62, 62, 239, 0.1),
+                   0 0 5px rgba(62, 62, 239, 0.1);
     }
     52% {
-      text-shadow: 0 0 5px rgba(157,208,154,.3);
+      text-shadow: 0 0 5px rgba(154, 168, 208, 0.3);
     }
     54% {
-      text-shadow: 0 0 2px rgba(255,255,255,.1),
-                   0 0 5px rgba(255,255,255,.1);
+      text-shadow: 0 0 2px rgba(62, 62, 239, 0.1),
+                   0 0 5px rgba(62, 62, 239, 0.1);
     }
     100% {
-      text-shadow: 0 0 2px rgba(255,255,255,.1),
-                   0 0 5px rgba(255,255,255,.1),
-                   0 0 20px rgba(157,208,154,.3);
+      text-shadow: 0 0 2px rgba(62, 62, 239, 0.1),
+                   0 0 5px rgba(62, 62, 239, 0.1),
+                   0 0 20px rgba(154, 168, 208, 0.3);
     }
   }
  
@@ -177,7 +174,7 @@ ul > li{
     display: grid;
     margin-bottom: 20px;
     grid-template-columns: 1fr 1fr ;
-    
+    padding: 15px;
 
 
 }
@@ -207,6 +204,20 @@ ul > li{
     
     box-shadow: 0px 0px 5px 1px lightblue;
 
+}
+
+.ListEjecucion, .NoExpuls{
+
+    border-radius: var(--border-radius);
+    background-color: #2c2e3300;
+    margin: 15px;
+    font-size: 17px;
+    padding: var(--padding-pequeño);
+    
+    box-shadow: 0px 0px 5px 1px rgb(0, 83, 227);
+}
+.ListEjecucion > h3, .NoExpuls > h3{
+ background-color: #0f021c00;
 }
 .ejecucion{
     margin: 5px;
@@ -391,4 +402,16 @@ footer{
     color: #6ad8e9;
     background-color: #0f021c;
     padding: 10px;
+}
+
+.content > h1{
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.content{
+    width: 40%;
+    margin: 0 auto;
+}
+canvas{
+    max-width: 100%;
 }
