@@ -1,0 +1,394 @@
+@import url(https://fonts.googleapis.com/css?family=Orbitron);
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background-color:#111;
+    font-family: 'Orbitron', courier, sans-serif;
+  }
+
+
+  .glow {
+    text-align:center;
+    color:rgba(255,255,255,.3); 
+    text-shadow: 0 0 1px rgba(157,208,154,.3); // Fallback for nonCSS3?
+    /* Stripes */
+    /*Fallback:
+  http://nimbupani.com/using-background-clip-for-text-with-css-fallback.html
+  */
+    background: -webkit-linear-gradient(transparent, transparent),               url(https://i.imgur.com/WyMyxQ6.png) repeat;
+    /* clipping webkit magic */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Animation */
+    -webkit-animation: glow 3s infinite alternate;
+       -moz-animation: glow 3s infinite alternate;
+            animation: glow 3s infinite alternate;
+    -webkit-animation-timing-function: cubic-bezier(1,.3,.79,.81);
+       -moz-animation-timing-function: cubic-bezier(1,.3,.79,.81);
+            animation-timing-function: cubic-bezier(1,.3,.79,.81);
+  }
+  
+  @-webkit-keyframes glow {
+    0% {
+      text-shadow: 0 0 1px rgba(255, 255, 255, 0.1),
+                   0 0 3px rgba(255,255,255,.1),
+                   0 0 5px rgba(157,208,154,.3);
+    }
+    50% {
+      text-shadow: 0 0 2px rgba(255,255,255,.1),
+                   0 0 5px rgba(255,255,255,.1);
+    }
+    52% {
+      text-shadow: 0 0 5px rgba(157,208,154,.3);
+    }
+    54% {
+      text-shadow: 0 0 2px rgba(255,255,255,.1),
+                   0 0 5px rgba(255,255,255,.1);
+    }
+    100% {
+      text-shadow: 0 0 2px rgba(255,255,255,.1),
+                   0 0 5px rgba(255,255,255,.1),
+                   0 0 20px rgba(157,208,154,.3);
+    }
+  }
+  
+  @-moz-keyframes glow {
+    0% {
+      text-shadow: 0 0 1px rgba(255,255,255,.1),
+                   0 0 3px rgba(255,255,255,.1),
+                   0 0 5px rgba(157,208,154,.3);
+    }
+    50% {
+      text-shadow: 0 0 2px rgba(255,255,255,.1),
+                   0 0 5px rgba(255,255,255,.1);
+    }
+    52% {
+      text-shadow: 0 0 5px rgba(157,208,154,.3);
+    }
+    54% {
+      text-shadow: 0 0 2px rgba(255,255,255,.1),
+                   0 0 5px rgba(255,255,255,.1);
+    }
+    100% {
+      text-shadow: 0 0 2px rgba(255,255,255,.1),
+                   0 0 5px rgba(255,255,255,.1),
+                   0 0 20px rgba(157,208,154,.3);
+    }
+  }
+  
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 1px rgba(255,255,255,.1),
+                   0 0 3px rgba(255,255,255,.1),
+                   0 0 5px rgba(157,208,154,.3);
+    }
+    50% {
+      text-shadow: 0 0 2px rgba(255,255,255,.1),
+                   0 0 5px rgba(255,255,255,.1);
+    }
+    52% {
+      text-shadow: 0 0 5px rgba(157,208,154,.3);
+    }
+    54% {
+      text-shadow: 0 0 2px rgba(255,255,255,.1),
+                   0 0 5px rgba(255,255,255,.1);
+    }
+    100% {
+      text-shadow: 0 0 2px rgba(255,255,255,.1),
+                   0 0 5px rgba(255,255,255,.1),
+                   0 0 20px rgba(157,208,154,.3);
+    }
+  }
+ 
+:root{
+    --color-primario : #141526;
+    --color-secundario : #26273b;
+    --color-claro:   rgb(57, 91, 100);
+
+    --padding-normal: 12px;
+    --padding-pequeño: 6px;
+    --padding-extrapeq: 2px;
+
+    --border-radius: 3px;
+}
+body{
+    background-color: var(--color-primario);
+}
+
+
+
+header{
+    /* position: absolute; */
+    color: rgb(103, 69, 182);   
+    box-shadow: 0px 5px 10px -6px rgb(78, 148, 246);
+    background-color: #0f101c;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+
+}
+h1{
+    font-size: 45px;
+    margin: 0px;
+    text-align: center;
+    background-color: #7c6ec7;
+}
+
+h2{
+    margin-top: 35px;
+    margin-left: 40px;
+    margin-bottom: 30px;
+    color: #6c58e0;
+
+}
+.tituloTabla{
+    background-color: #26273b;
+    text-align: center;
+    color: rgb(0, 174, 255);
+    font-size: 20px;
+    margin: 5px;
+}
+ul > h3{
+    text-align: center;
+     color: rgb(0, 174, 255);
+    font-size: 20px;
+}
+ul > li{
+    margin: 15px;
+    font-size: 17px;
+    color: aqua;
+}
+
+.contenedor{
+    display: grid;
+    gap: 20px;
+    margin: 20px;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.contenedor2{
+    display: grid;
+    margin-bottom: 20px;
+    grid-template-columns: 1fr 1fr ;
+    
+
+
+}
+.ul1{
+    list-style: none;
+    padding: var(--padding-extrapeq);
+    border-radius: 5px;
+    
+    box-shadow: 0px 0px 5px 1px lightblue;
+}
+.denomi{
+    width: 300px;
+}
+.ul2{
+    width: 200px;
+}
+
+.listos, .terminado{
+    background-color: var(--color-secundario);
+    border-radius: var(--border-radius);
+    width: 500px;
+    margin: 5px;
+    left: 10px;
+    right: 10px;
+    font-size: 17px;
+    padding: var(--padding-pequeño);
+    
+    box-shadow: 0px 0px 5px 1px lightblue;
+
+}
+.ejecucion{
+    margin: 5px;
+}
+
+.tablaProcesos{
+    border-collapse: collapse;
+    width: 100%;
+    background-color: var(--color-primario);
+    color: aqua;
+    
+}
+
+.tablaProcesos th, .tablaProcesos td {
+    padding: var(--padding-normal);
+}
+
+.tablaProcesos th{
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 1px wheat     ;
+}
+
+
+.BotonEmpezar{
+    width: 100%;
+    height: 330px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.605), 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+	justify-content: center;
+	align-items: center;
+    background-image: linear-gradient(-20deg, #ddd6f3 0%, #faaca8 100%, #faaca8 100%);
+
+}
+
+.InputQuantum{
+    width: 500px;
+    background: rgba(255, 255, 255, 0);
+    padding: 30px;
+ 
+
+}
+
+.InputQuantum .input-data{
+    height: 40px;
+    width: 100%;
+      
+    display: flex;
+    
+    align-items: center;
+    flex-direction: column-reverse;
+    
+}
+
+.InputQuantum .input-data input{
+    height: 100%;
+    width: 30%;
+    border: none;
+    font-size: 17px;
+    border-bottom: 4px solid silver;
+    background-color: #0f101c00;
+    color: white;
+    text-align: center;
+}
+.input-data input:focus ~ label,
+.input-data input:valid ~ label{
+    transform: translateY(-20px);
+    font-size: 20px;
+    text-align: center;
+    color: aqua;
+}
+
+.InputQuantum .input-data label{
+    font-size: 18px;
+    bottom: 5px;
+    left: 0;
+    color: rgba(0, 255, 255, 0.765);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    
+
+}
+
+
+#app{
+	width: 80px;
+	height: 80px;
+	position: relative;
+	border-radius: 50%;
+	overflow: hidden;
+
+}
+
+.pause, .play{
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	position: absolute;
+}
+.line{
+	position: absolute;
+	width: 8px;
+	height: 50%;
+	background: #000;
+	border-radius: 10px;
+	transition: all 400ms cubic-bezier(.8, 0, .33, 1);
+}
+
+.play .line{
+    margin: 25% 0;
+}
+
+.play .line_1{
+    left: 28%;
+
+}
+.play .line_2{
+    height: 56%;
+    left: 60%;
+    transform: rotate(-55deg) translateY(-128px) translateX(16px);
+    transition-delay: 100ms;
+}
+.play .line_3{
+    height: 56%;
+    left: 60%;
+    transform: rotate(55deg) translateY(-128px) translateX(16px);
+    transition-delay: 100ms;
+}
+.play.active .line{
+    height: 62%;
+    margin: 20% 0;
+}
+.play.active .line_1{
+    left: 28%;
+    top: -3px;
+}
+.play.active .line_2{
+    height: 56%;
+    left: 63%;
+    transform: rotate(-55deg) translateY(-16.5px) translateX(2px);
+
+}
+
+.play.active .line_3{
+    height: 56%;
+    left: 63%;
+    transform: rotate(55deg) translateY(16.5px) translateX(2px);
+}
+
+.pause .line_1{
+    margin: 25% 0;
+    left:  28%;
+}
+
+.pause .line_2{
+    margin: 100% -16%;
+    right:  45%;
+    transition-delay: 200ms;
+}
+
+.pause.active .line_1{
+    margin: 25% 0;
+    left:  28%;
+}
+.pause.active .line_2{
+    margin: 25% 0;
+    right:  28%;
+}
+footer{
+    text-align: center;
+    color: #6ad8e9;
+    background-color: #0f021c;
+    padding: 10px;
+}

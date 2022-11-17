@@ -4,9 +4,223 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Simulador de Procesos</title>
 </head>
+<header>
+  <h1 class="glow">Simulador de Procesos</h1>
+</header>
 <body>
+
+
+    <h2>Estados de los Procesos</h2>
+    <div class="contenedor">
+        <section class="estadoProceso">
+            <div class="listos">
+                <h3 class="tituloTabla">Procesos Listos</h3>
+                <table class="tablaProcesos" id="tableListos">
+                    <thead>
+                      <tr class="headertable">
+                        <th>#id</th>
+                        <th>Nombre</th>
+                        <th>Rafaga</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Minecraft</td>
+                        <td>23</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Word</td>
+                        <td>45</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Excel</td>
+                        <td>54</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </section>
     
+        <section class="estadoProceso">
+            <div class="ejecucion">
+                <ul>
+                    <h3>Proceso en Ejecucion</h3>
+                    <li>
+                        id = 
+                    </li>
+                    <li>
+                        nombre =
+                    </li>
+                    <li>
+                        Rafaga =
+                    </li>
+                    <li>
+                        Tiempo Restante =
+                    </li>
+                </ul>
+    
+            </div>
+        </section>
+        <section class="estadoProceso">
+            <div class="terminado">
+                <h3 class="tituloTabla">Procesos Terminados</h3>
+                <table class="tablaProcesos" id="tableTerminado">
+                    <thead>
+                      <tr class="headertable">
+                        <th>#id</th>
+                        <th>Nombre</th>
+                        <th>Tiempo de Finalizacion</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Minecraft</td>
+                        <td>23</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Word</td>
+                        <td>45</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Excel</td>
+                        <td>54</td>
+                      </tr>
+                       <tr>
+                        <td>3</td>
+                        <td>Excel</td>
+                        <td>54</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </section>
+    </div>
+    
+    <!-- BOTON PARA EMPZAR Y PAUSAR EL SIMULADOR -->
+    <div class="BotonEmpezar">
+      <div class="InputQuantum">
+        <div class="input-data">
+          <input type="number" required>
+          <label >QUANTUM</label>
+        </div>
+      </div>
+      <div class="container">
+        <div id="app">
+          <div class="pause">
+            <div class="line line_1"></div>
+            <div class="line line_2"></div>
+          </div>
+          <div class="play active">
+            <div class="line line_1"></div>
+            <div class="line line_2"></div>
+            <div class="line line_3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Reportes</h2>
+    <div class="contenedor2">
+      <section class="estadoProceso">
+        <div class="terminado">
+            <h3 class="tituloTabla">Listado de ejecución</h3>
+            <table class="tablaProcesos" id="tableTerminado">
+                <thead>
+                  <tr class="headertable">
+                    <th>P</th>
+                    <th>TL</th>
+                    <th>R</th>
+                    <th>P.R</th>
+                    <th>T.R</th>
+                    <th>T.F</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Minecraft</td>
+                    <td>23</td>
+                    <td>5</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>20</td>
+                  </tr>
+                  <tr>
+                    <td>Word</td>
+                    <td>32</td>
+                    <td>5</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>24</td>
+                  </tr>
+                  <tr>
+                    <td>Excel</td>
+                    <td>22</td>
+                    <td>5</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>12</td>
+                  </tr>
+                  <tr>
+                    <td>COD</td>
+                    <td>34</td>
+                    <td>5</td>
+                    <td>4</td>
+                    <td>2</td>
+                    <td>26</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </section>
+    <section class="estadoProceso">
+      <div class="terminado">
+          <h3 class="tituloTabla">Listado de procesos (no expulsivos)</h3>
+          <table class="tablaProcesos" id="tableTerminado">
+              <thead>
+                <tr class="headertable">
+                  <th>P</th>
+                  <th>TL</th>
+                  <th>R</th>
+                  <th>P.R</th>
+                  <th>T.R</th>
+                  <th>T.F</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Minecraft</td>
+                  <td>23</td>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td>Word</td>
+                  <td>32</td>
+                  <td>5</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>24</td>
+                </tr>
+
+              </tbody>
+            </table>
+      </div>
+  </section>
+    </div>
 </body>
+<footer>
+  Universidad de Cordoba - Sistemas Operativos
+</footer>
+<script src="js/boton.js"></script>
 </html>
