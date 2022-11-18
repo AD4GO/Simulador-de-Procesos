@@ -2,12 +2,12 @@
 *{
     margin: 0;
     padding: 0;
-
+    font-family: 'Orbitron', courier, sans-serif;
 }
 
 body {
     background-color:#111;
-    font-family: 'Orbitron', courier, sans-serif;
+
   }
 
 
@@ -411,8 +411,8 @@ footer{
 }
 .content{
     width: 50%;
-    margin: 0 ;
-    margin: 20px;
+    margin: 15px;
+    margin-right: 60px;
 }
 .content h2{
     margin: 5px;
@@ -431,3 +431,51 @@ canvas{
     display: flex;
     gap: 200px;
 }
+
+select {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    appearance:none;
+    outline:0;
+
+    border:0!important;
+    background: var(--color-primario);
+    background-image: none;
+    flex: 1;
+    padding: 0 .5em;
+    color: aqua;
+    cursor:pointer;
+    font-size: 1em;
+ 
+ }
+ select::-ms-expand {
+    display: none;
+ }
+ .select {
+    position: relative;
+    display: flex;
+    width: 23em;
+    margin-bottom: 15px;
+    height: 3em;
+    line-height: 3;
+    background: var(--color-primario);
+    overflow: hidden;
+    border-radius: .25em;
+    box-shadow: 0px 2px 2px 1px rgba(0, 83, 227, 0.648);
+    border: 0.8px solid rgba(0, 83, 227, 0.648);
+ }
+ .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: var(--color-secundario);
+    cursor:pointer;
+    pointer-events:none;
+    transition:.25s all ease;
+ }
+ .select:hover::after {
+    color: #23b499;
+ }
