@@ -13,8 +13,32 @@
 </header>
 <body>
 
+    <div class="arriba">
+        <h2>Estados de los Procesos</h2>
+      <div class="BotonEmpezar">
 
-    <h2>Estados de los Procesos</h2>
+        <div class="InputQuantum">
+          <div class="input-data">
+            <input type="number" required class="inpQuantum">
+            <label >QUANTUM</label>
+          </div>
+        </div>
+        <div class="container">
+          <div id="app">
+            <div class="pause">
+              <div class="line line_1"></div>
+              <div class="line line_2"></div>
+            </div>
+            <div class="play active">
+              <div class="line line_1"></div>
+              <div class="line line_2"></div>
+              <div class="line line_3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <div class="contenedor">
         <section class="estadoProceso">
             <div class="listos">
@@ -107,37 +131,7 @@
     </div>
     
     <!-- BOTON PARA EMPZAR Y PAUSAR EL SIMULADOR -->
-    <div class="BotonEmpezar">
-      <div class="select">
-        <select name="format" id="format">
-           <option selected disabled>Seleccionar Catalogo de Procesos</option>
-           <option value="Catalogo1">Catalogo1</option>
-           <option value="Catalogo2">Catalogo2</option>
-           <option value="Catalogo3">Catalogo3</option>
-           <option value="Catalogo4">Catalogo4</option>
-           <option value="Catalogo5">Catalogo5</option>
-        </select>
-     </div>
-      <div class="InputQuantum">
-        <div class="input-data">
-          <input type="number" required>
-          <label >QUANTUM</label>
-        </div>
-      </div>
-      <div class="container">
-        <div id="app">
-          <div class="pause">
-            <div class="line line_1"></div>
-            <div class="line line_2"></div>
-          </div>
-          <div class="play active">
-            <div class="line line_1"></div>
-            <div class="line line_2"></div>
-            <div class="line line_3"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
 
     <h2>Reportes</h2>
     <div class="contenedor2">
