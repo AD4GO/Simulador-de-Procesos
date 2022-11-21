@@ -2,7 +2,17 @@ const simulador = {
     template: `<div>
             <div class="arriba">
             <h2>Estados de los Procesos</h2>
+            
             <div class="BotonEmpezar">
+            <div class="InputQuantum">
+                <div class="input-data">
+                <select v-model="catalogo" class="selectCatalogo">
+                    <option value="0"> Seleccionar </option>
+                    <option v-for="cat, i in catalogos":key="i" v-bind:value="cat">{{cat}}</option>
+                </select>
+                <label>Catálogo</label>
+                </div>
+            </div>
             <div class="InputQuantum">
                 <div class="input-data">
                 <input type="number" required class="inpQuantum" v-model="th"/>
@@ -45,7 +55,7 @@ const simulador = {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="pr, i in listos":key="i">
+                    <tr v-for="pr, i in listos":key="i" v-if="pr.catalogo==catalogo">
 
                         <td>{{pr.pid}}</td>
                         <td>{{pr.nombre}}</td>
@@ -162,18 +172,21 @@ const simulador = {
         <h3 class="tituloGrafica">Proceso vs TurnaRound</h3>
         <canvas id="myChart" height="100" width="200"> </canvas>
       </section>
+      
     </div>
     </div>`,
   data() {
     return {
         boton: true,
         quantum: 0,
+        catalogo: "0",
         tiempo: 0,
         cont: 0,
         th: 0,
         procesos: [],
         listos: [],
         finalizados: [],
+        catalogos: [],
         proceso: {
             pid: "",
             nombre: "",
@@ -186,6 +199,8 @@ const simulador = {
             restante: 0,
             iteraciones: 0
         },
+        turnRound: [],
+        labels: []
     }
   },
   methods: {
@@ -196,7 +211,11 @@ const simulador = {
                 this.procesos.push(JSON.parse(JSON.stringify(element)))
            });
            this.listos = this.procesos;
-        }))
+           for (let i in this.procesos) {
+                if(this.catalogos.indexOf(this.procesos[i].catalogo)===-1)
+                    this.catalogos.push(this.procesos[i].catalogo);
+            }
+        }));
     },
     simulacionNoExpulsivos(){
         if(this.listos[0].restante>0){
@@ -206,14 +225,14 @@ const simulador = {
             this.listos[0].iteraciones++;
             this.finalizados.push(this.listos[0]);
             this.listos.splice(0,1);
-            this.proceso.pid = this.listos[0].pid;
-            this.proceso.nombre = this.listos[0].nombre;
-            this.proceso.rafaga = (this.listos[0].nombre.length * this.th)/1000;
-            if(this.listos[0].restante==0)
-                this.listos[0].restante = this.proceso.rafaga;
+            if(this.listos[0].catalogo==this.catalogo){
+                this.proceso.pid = this.listos[0].pid;
+                this.proceso.nombre = this.listos[0].nombre;
+                this.proceso.rafaga = (this.listos[0].nombre.length * this.th)/1000;
+                if(this.listos[0].restante==0)
+                    this.listos[0].restante = this.proceso.rafaga;
+            }
         }
-        this.proceso.restante = this.listos[0].restante;
-        this.tiempo++;
     },
     simulacionExpulsivos(){
         if (this.cont<(this.quantum/1000) && this.listos[0].restante>0){
@@ -224,79 +243,75 @@ const simulador = {
             this.listos.push(this.listos[0]);
             this.listos.splice(0,1);
             this.cont=0;
-            this.proceso.pid = this.listos[0].pid;
-            this.proceso.nombre = this.listos[0].nombre;
-            this.proceso.rafaga = (this.listos[0].nombre.length * this.th)/1000;
-            if(this.listos[0].restante==0)
-                this.listos[0].restante = this.proceso.rafaga;
+            if(this.listos[0].catalogo==this.catalogo){
+                this.proceso.pid = this.listos[0].pid;
+                this.proceso.nombre = this.listos[0].nombre;
+                this.proceso.rafaga = (this.listos[0].nombre.length * this.th)/1000;
+                if(this.listos[0].restante==0)
+                    this.listos[0].restante = this.proceso.rafaga;
+            }
         } else {
-            this.listos[0].iteraciones++;
-            this.listos[0].tiempoFin = this.tiempo;
-            this.finalizados.push(this.listos[0]);
-            this.listos.splice(0,1);
-            this.proceso.pid = this.listos[0].pid;
-            this.proceso.nombre = this.listos[0].nombre;
-            this.proceso.rafaga = (this.listos[0].nombre.length * this.th)/1000;
-            if(this.listos[0].restante==0)
-                this.listos[0].restante = this.proceso.rafaga;
+                this.listos[0].iteraciones++;
+                this.listos[0].tiempoFin = this.tiempo;
+                this.finalizados.push(this.listos[0]);
+                this.listos.splice(0,1);
+            if(this.listos.length>0 && this.listos[0].catalogo==this.catalogo){
+                this.proceso.pid = this.listos[0].pid;
+                this.proceso.nombre = this.listos[0].nombre;
+                this.proceso.rafaga = (this.listos[0].nombre.length * this.th)/1000;
+                if(this.listos[0].restante==0)
+                    this.listos[0].restante = this.proceso.rafaga;
+            }
         }
-        this.proceso.restante = this.listos[0].restante;
-        this.tiempo++;
     }, 
     async accionBoton(){
         var interval
         if(this.boton){
             this.boton = false;
+            var delay = 500;
             interval = setInterval(()=>{
-                //Para el primer proceso
-                if (this.tiempo == 0 ){
-                    this.proceso.pid = this.listos[0].pid;
-                    this.proceso.nombre = this.listos[0].nombre;
-                    this.proceso.rafaga = (this.listos[0].nombre.length * this.th)/1000;
-                    this.listos[0].restante = this.proceso.rafaga;
-                    this.proceso.restante = this.listos[0].restante;
-                    this.listos[0].tiempoLlegada = this.tiempo;
-                } else if (this.listos[0].tiempoLlegada==-1)
-                    this.listos[0].tiempoLlegada = this.tiempo;
-                if(this.listos[0].prioridad=="1") this.simulacionNoExpulsivos();
-                else this.simulacionExpulsivos();
-
                 if(this.listos.length==0 || this.boton){
                     clearInterval(interval);
-                }
-            }, 100);
+                } else {
+                    if(this.listos[0].catalogo===this.catalogo){
+                        delay = 500;
+                        //Para el primer proceso
+                        if (this.tiempo == 0 ){
+                            this.proceso.pid = this.listos[0].pid;
+                            this.proceso.nombre = this.listos[0].nombre;
+                            this.proceso.rafaga = (this.listos[0].nombre.length * this.th)/1000;
+                            this.listos[0].restante = this.proceso.rafaga;
+                            this.proceso.restante = this.listos[0].restante;
+                            this.listos[0].tiempoLlegada = this.tiempo;
+                        } else if (this.listos[0].tiempoLlegada==-1)
+                            this.listos[0].tiempoLlegada = this.tiempo;
+                            if(this.listos[0].prioridad=="1") this.simulacionNoExpulsivos();
+                            else this.simulacionExpulsivos();
+                            if(this.listos.length!=0) this.proceso.restante = this.listos[0].restante;
+                            this.tiempo++;
+                        } else {
+                            this.listos.splice(0,1);
+                            delay=0;
+                        }
+                    }
+            }, delay);
         } else {
             this.boton = true;
         }
         if(this.listos.length==0){
-            this.graficar();
+            this.cargarDatos();
+            //this.graficar();
         }
     }
   },
-  graficar(){
-    const procesos = []
-    const turnRound = []
-    for (const process of this.finalizados) {
-        procesos.push(process.nombre);
-        turnRound.push(process.tiempoFin-process.tiempoLlegada);
-    }
-    console.log(procesos);
-    console.log(turnRound);
-    const ctx = document.getElementById('myChart');
-    Chart.defaults.color = '#fff';
-    const myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels : procesos,
-            datasets: [{
-                label: '',
-                data: turnRound,
-                backgroundClor: [
-                    '#111'
-                ],
-            }]
-        }
-    })
+  cargarDatos(){
+    fetch('./json/procesos.json')
+        .then(response => response.json().then(data =>{
+           data.forEach(element => {
+                this.procesos.push(JSON.parse(JSON.stringify(element)))
+           });
+           this.listos = this.procesos;
+        }));
   },
   mounted() {
     this.capturarProcesos()
